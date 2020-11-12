@@ -1,14 +1,18 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 
-// require routes
 
 
 const app = express();
 
 app.use(logger("dev"));
+
+// body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // app.use(express.urelencoded({ extended: true }));
 app.use(express.json());
